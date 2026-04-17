@@ -7,7 +7,6 @@ help:
   lines:
     - "&#2D2D2D=&#383838=&#444444=&#4F4F4F=&#5A5A5A= &#0096B3P&#0099B6l&#009CB8u&#009EBBg&#00A1BEL&#00A4C0o&#00A7C3a&#00A9C6d&#00ACC8e&#00AFCBr &#00B5D0C&#00B7D3o&#00BAD6m&#00BDD8m&#00C0DBa&#00C2DEn&#00C5E0d&#00C8E3s &#5A5A5A=&#4F4F4F=&#444444=&#383838=&#2D2D2D="
     - ""
-    # - "&#3C3C3C» &#D6D900/&#D7E100k&#D9E800o&#DAF000m&#DCF700u&#DDFF00t &#3B3B3B・ &#00CDBCA&#1ED2A1ç&#3BD786ı&#59DC6Bk&#77E051l&#95E536a&#B2EA1Bm&#D0EF00a"
     - "&#3C3C3C» &#D6D900/plugloader &#3B3B3B・ &#00CDBCDisplays the PlugLoader help message."
     - "&#3C3C3C» &#D6D900/plugloader cache clear &#3B3B3B・ &#00CDBCClears the cache in the libs/cache directory."
     - "&#3C3C3C» &#D6D900/plugloader compile <id> &#3B3B3B・ &#00CDBCRecompiles the source of the specified plugin."
