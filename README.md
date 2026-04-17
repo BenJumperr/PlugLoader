@@ -1,240 +1,103 @@
 # ⚙️ PlugLoader
 
-> **Paper & Purpur (1.21.11) için dinamik, Maven tabanlı plugin yükleyici**
+> **A new generation plugin system for Paper & Purpur**
 
-PlugLoader, klasik plugin sistemini genişleterek **sunucu restart atmadan plugin yönetimi**, **bağımsız çalışma ortamı** ve **runtime dependency yükleme** sağlar.
+PlugLoader changes the way Minecraft servers handle plugins.
 
----
-
-## 🚀 Temel Özellikler
-
-### 🔹 Dinamik Plugin Sistemi
-
-* `plugins/PlugLoader/plugins/` klasöründeki tüm geçerli yapılar otomatik algılanır
-* Sunucu başlatılırken:
-
-  ```
-  [PlugLoader] Founded X plugin.
-  ```
-* Aktif pluginler otomatik başlatılır
+Instead of relying on the traditional static plugin system, PlugLoader introduces a **dynamic, flexible, and modern approach** to managing server functionality.
 
 ---
 
-### 🔹 Plugin Durum Yönetimi
+## 🚀 Why PlugLoader?
 
-* Açık pluginler:
+Managing plugins shouldn’t require constant restarts, conflicts, or complicated setups.
 
-  ```
-  [PlugLoader] Starting X plugin
-  ```
-* Kapalı pluginler:
+PlugLoader is built to give server owners and developers:
 
-  ```
-  [PlugLoader] It's Not Running Because X Plugins Are Disabled
-  ```
+* More control
+* More flexibility
+* More performance
 
----
-
-### 🔹 Plugin Kimlik Sistemi (pluginid)
-
-Her plugin tamamen izole çalışır:
-
-```
-plugins/PlugLoader/
-├── plugins/<pluginid>/
-├── libs/<pluginid>/
-│   ├── dependencies/
-│   └── repositories/
-```
-
-✔ Çakışma önlenir
-✔ Her plugin bağımsızdır
+All in one system.
 
 ---
 
-### 🔹 Maven Dependency Sistemi
+## 🔥 Key Highlights
 
-`config.yml` içinde plugin bazlı yapı:
+### ⚡ Dynamic Plugin System
 
-```yaml
-plugins:
-  example:
-    dependencies:
-      - org.jetbrains.kotlin:kotlin-stdlib:1.9.0
-    repositories:
-      - https://repo1.maven.org/maven2/
-```
+Load, manage, and control plugins in a completely new way — without being limited by traditional structures.
 
 ---
 
-### 🔹 Runtime Yükleme Sistemi
+### 🧩 Modular Architecture
 
-Dependency yüklenirken:
-
-```
-[PlugLoader] Downloading dependencies 25%
-```
-
-Tamamlandığında:
-
-```
-[PlugLoader] Dependencies have been successfully loaded.
-```
-
-Aynı sistem repositories için de geçerlidir:
-
-```
-[PlugLoader] Downloading repositories 40%
-[PlugLoader] Repositories have been successfully loaded.
-```
+Each plugin runs independently, making your server cleaner, safer, and easier to maintain.
 
 ---
 
-### 🔹 Cache Sistemi
+### 📦 Built for Developers
 
-Ortak dependency varsa:
-
-```
-plugins/PlugLoader/libs/cache/
-```
-
-✔ Depolama tasarrufu
-✔ Tekrar indirme engellenir
+Designed with modern development in mind, PlugLoader makes it easier to create, manage, and scale your projects.
 
 ---
 
-### 🔹 Sunucu API Kontrolü
+### 🔄 Smart Loading System
 
-Duruma göre:
-
-* Kurulu değilse:
-
-  ```
-  [PlugLoader] Plugins in the server are loading...
-  ```
-
-* Kurulum tamam:
-
-  ```
-  [PlugLoader] Server plugins installed.
-  ```
-
-* Uyumsuzluk varsa:
-
-  ```
-  [PlugLoader] Incompatibility detected in installed plugins! Repairing installed plugins...
-  ```
-
-* Tamir sonrası:
-
-  ```
-  [PlugLoader] Repair completed successfully!
-  ```
+Plugins are automatically detected and handled intelligently during server startup.
 
 ---
 
-### 🔹 Logging Sistemi
+### 🛠️ Powerful Management
 
-Plugin içindeki tüm loglar otomatik prefix alır:
+Control everything from a single system:
 
-```
-[PlugLoader] Hello World!
-```
-
----
-
-## 📂 Klasör Yapısı
-
-```
-plugins/
-└── PlugLoader/
-    ├── config.yml
-    ├── messages.yml
-    ├── plugins/
-    │   └── <pluginid>/
-    ├── libs/
-    │   ├── <pluginid>/
-    │   ├── cache/
-    │   └── mandatory/
-```
+* Enable / Disable plugins
+* Reload specific plugins
+* Monitor plugin status
+* Manage your environment easily
 
 ---
 
-## 🧠 Güvenli Plugin Algılama
+### 🧠 Intelligent Resource Handling
 
-Her klasör plugin sayılmaz.
-
-✔ Geçerli olması için:
-
-* `plug.json` veya benzeri metadata bulunmalı
+PlugLoader optimizes how resources are handled behind the scenes, reducing unnecessary load and improving efficiency.
 
 ---
 
-## ⚠️ Reload Sistemi
+### 🧱 Clean & Organized Structure
 
-Tam restart yerine kontrollü yapı:
-
-* `/plugloader reload plugins`
-* `/plugloader reload deps`
-
-Tam restart:
-
-```
-/plugloader restart
-```
+Keep everything structured and maintainable as your server grows.
 
 ---
 
-## 🧩 Komutlar
+## 🎯 Who Is It For?
 
-| Komut                      | Açıklama                     | Permission               |
-| -------------------------- | ---------------------------- | ------------------------ |
-| `/plugloader`              | Yardım menüsü                | `plugloader.help`        |
-| `/plugloader list`         | Pluginleri listeler          | `plugloader.list`        |
-| `/plugloader enable <id>`  | Plugin açar                  | `plugloader.enable`      |
-| `/plugloader disable <id>` | Plugin kapatır               | `plugloader.disable`     |
-| `/plugloader reload <id>`  | Plugin yeniden başlatır      | `plugloader.reload`      |
-| `/plugloader restart`      | Tüm sistemi yeniden başlatır | `plugloader.restart`     |
-| `/plugloader status`       | Aktif/pasif sayısı           | `plugloader.status`      |
-| `/plugloader info <id>`    | Plugin detayları             | `plugloader.info`        |
-| `/plugloader compile <id>` | Maven build                  | `plugloader.compile`     |
-| `/plugloader cache clear`  | Cache temizler               | `plugloader.cache.clear` |
-| `/plugloader create <id>`  | Yeni plugin oluşturur        | `plugloader.create`      |
-
-Aliaslar:
-
-```
-/ploader
-/pload
-/plugload
-```
+* Server owners who want **better control**
+* Developers who want a **modern plugin workflow**
+* Communities that need **scalable systems**
 
 ---
 
-## 🏁 Amaç
-
-PlugLoader:
-
-* Plugin geliştirmeyi hızlandırır
-* Sunucu restart ihtiyacını azaltır
-* Büyük sistemler için modüler yapı sağlar
-* Her plugini bağımsız çalıştırır
-
----
-
-## ⚡ Desteklenen Platformlar
+## ⚙️ Platform Support
 
 * Paper
 * Purpur
 
 ---
 
-## 📌 Not
+## 🚧 Status
 
-Bu sistem:
+PlugLoader is currently in development (Beta).
 
-* Küçük scriptlerden
-* Büyük Maven projelerine kadar
-  ölçeklenebilir bir yapı sunar.
+New features and improvements are continuously being added.
+
+---
+
+## 💡 Vision
+
+PlugLoader is not just another plugin.
+
+It’s a step toward a **more dynamic, modular, and powerful future** for Minecraft server development.
 
 ---
