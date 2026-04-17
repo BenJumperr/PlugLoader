@@ -1,0 +1,22 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(':PlugLoader-Core')
+    implementation project(':PlugLoader-Paper')
+    compileOnly "io.papermc.paper:paper-api:${rootProject.ext.paperApiVersion}"
+}
+
+jar {
+    dependsOn project(':PlugLoader-Core').tasks.named('jar')
+    dependsOn project(':PlugLoader-API').tasks.named('jar')
+    dependsOn project(':PlugLoader-Paper').tasks.named('jar')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveClassifier = ''
+    from {
+        configurations.runtimeClasspath.collect { dependency ->
+            dependency.isDirectory() ? dependency : zipTree(dependency)
+        }
+    }
+}

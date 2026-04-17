@@ -1,0 +1,33 @@
+name: PlugLoader
+version: ${version}
+main: xyz.aeroitems.plugloader.purpur.PlugLoaderPurpurPlugin
+api-version: "1.21"
+authors: [AeroItems]
+description: Dynamic isolated loader for Maven-based sub-plugins.
+commands:
+  plugloader:
+    aliases: [ploader, pload, plugload]
+    permission: plugloader.help
+permissions:
+  plugloader.help:
+    default: op
+  plugloader.list:
+    default: op
+  plugloader.enable:
+    default: op
+  plugloader.disable:
+    default: op
+  plugloader.reload:
+    default: op
+  plugloader.restart:
+    default: op
+  plugloader.status:
+    default: op
+  plugloader.info:
+    default: op
+  plugloader.compile:
+    default: op
+  plugloader.cache.clear:
+    default: op
+  plugloader.create:
+    default: op

@@ -1,0 +1,28 @@
+prefix: "&7[&bPlugLoader&7] &r"
+command:
+  no-permission: "You do not have permission."
+  missing-argument: "Missing argument."
+  error: "PlugLoader error: %message%"
+help:
+  lines:
+    - "&#2D2D2D=&#383838=&#444444=&#4F4F4F=&#5A5A5A= &#0096B3P&#0099B6l&#009CB8u&#009EBBg&#00A1BEL&#00A4C0o&#00A7C3a&#00A9C6d&#00ACC8e&#00AFCBr &#00B5D0C&#00B7D3o&#00BAD6m&#00BDD8m&#00C0DBa&#00C2DEn&#00C5E0d&#00C8E3s &#5A5A5A=&#4F4F4F=&#444444=&#383838=&#2D2D2D="
+    - ""
+    # - "&#3C3C3C» &#D6D900/&#D7E100k&#D9E800o&#DAF000m&#DCF700u&#DDFF00t &#3B3B3B・ &#00CDBCA&#1ED2A1ç&#3BD786ı&#59DC6Bk&#77E051l&#95E536a&#B2EA1Bm&#D0EF00a"
+    - "&#3C3C3C» &#D6D900/plugloader &#3B3B3B・ &#00CDBCDisplays the PlugLoader help message."
+    - "&#3C3C3C» &#D6D900/plugloader cache clear &#3B3B3B・ &#00CDBCClears the cache in the libs/cache directory."
+    - "&#3C3C3C» &#D6D900/plugloader compile <id> &#3B3B3B・ &#00CDBCRecompiles the source of the specified plugin."
+    - "&#3C3C3C» &#D6D900/plugloader create <id> &#3B3B3B・ &#00CDBCCreates a new empty and compatible plugin skeleton."
+    - "&#3C3C3C» &#D6D900/plugloader disable <id> &#3B3B3B・ &#00CDBCDisables the specified plugin."
+    - "&#3C3C3C» &#D6D900/plugloader enable <id> &#3B3B3B・ &#00CDBCEnables the specified plugin."
+    - "&#3C3C3C» &#D6D900/plugloader info <id> &#3B3B3B・ &#00CDBCShow detailed information about the specified plugin."
+    - "&#3C3C3C» &#D6D900/plugloader list &#3B3B3B・ &#00CDBCLists all loaded sub-plugins."
+    - "&#3C3C3C» &#D6D900/plugloader reload <id> &#3B3B3B・ &#00CDBCReloads the specified plugin."
+    - "&#3C3C3C» &#D6D900/plugloader restart &#3B3B3B・ &#00CDBCRestarts the entire PlugLoader system and inactive plugins."
+    - "&#3C3C3C» &#D6D900/plugloader status &#3B3B3B・ &#00CDBCShows the number of active and inactive plugins."
+    - "&#3C3C3C» &#D6D900/plugloader:yourplugincommand &#3B3B3B・ &#00CDBCRedicerts commands from loaded sub-pluginsto be used as /yourplugincommand"
+    - ""
+    - "&#2D2D2D=&#2F2F2F=&#313131=&#333333=&#353535=&#363636=&#383838=&#3A3A3A=&#3C3C3C=&#3E3E3E=&#404040=&#424242=&#444444=&#454545=&#474747=&#494949=&#4B4B4B=&#4D4D4D=&#4F4F4F=&#515151=&#535353=&#545454=&#565656=&#585858=&#5A5A5A="
+startup:
+  founded: "[PlugLoader] Founded %count% plugin."
+  enabled: "[PlugLoader] Starting %count% plugin"
+  disabled: "[PlugLoader] It's Not Running Because %count% Plugins Are Disabled"

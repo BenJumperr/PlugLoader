@@ -1,0 +1,8 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':PlugLoader-API')
+    implementation 'org.yaml:snakeyaml:2.2'
+}
