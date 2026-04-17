@@ -1,0 +1,53 @@
+plugins {
+    id 'base'
+}
+
+group = 'xyz.aeroitems'
+version = 'beta-0.1.0'
+
+ext {
+    javaVersion = 21
+    paperApiVersion = '1.21.1-R0.1-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = rootProject.group
+    version = rootProject.version
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(rootProject.ext.javaVersion)
+        }
+        withSourcesJar()
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+        maven { url = 'https://repo.purpurmc.org/snapshots' }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = rootProject.ext.javaVersion
+    }
+
+    tasks.withType(ProcessResources).configureEach {
+        inputs.property('version', project.version)
+        filesMatching(['plugin.yml', 'paper-plugin.yml']) {
+            expand(version: project.version)
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.10.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+}

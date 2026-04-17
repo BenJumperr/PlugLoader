@@ -1,0 +1,5 @@
+rootProject.name = 'PlugLoader'
+include 'PlugLoader-API'
+include 'PlugLoader-Paper'
+include 'PlugLoader-Purpur'
+include 'PlugLoader-Core'
