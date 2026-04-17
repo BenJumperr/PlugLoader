@@ -92,6 +92,8 @@ PlugLoader is currently in development (Beta).
 
 New features and improvements are continuously being added.
 
+Plugin checks are performed exclusively on the Paper platform.
+
 ---
 
 ## 💡 Vision
